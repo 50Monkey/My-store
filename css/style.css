@@ -1,0 +1,63 @@
+*{padding:0; margin:0;list-style: none}
+
+body{
+    font-size: 15px;
+    line-height:15px;
+}
+#content{
+    border:1px solid #8ddbf3;
+    padding:20px;
+    width: 800px; 
+    margin: 0 auto;
+}
+
+h1{
+    color: #0088BB;font-weight: blod;
+    font-size: 30px;
+}
+
+
+.item{
+    margin:20px 10px 20px 10px;
+    border:1px solid #c0c0c0;
+}
+
+.item li{
+    display:inline;margin-right: 10px;
+}
+
+.item h3{
+    border-bottom:2px solid #0088BB; 
+    font-size: 28px;font-weight: bold;
+    margin:10px 5px 10px 8px;
+    padding-bottom: 10px;
+}
+
+.item ul li img{
+    width:230px;height: 230px;
+    margin-right:10px;margin-bottom: 10px;
+}
+#floor {
+    position: fixed;          /*   固定定位   */
+    top: 100px;
+    left: 50%;             /*小技巧：先定位到中部，再向右偏移*/
+    margin-left:422px;
+    width: 50px;
+}
+#floor ul li a{          /*样式写在a标签上不写在li标签上*/
+display:block;
+border:1px solid #eee;
+height:30px;line-height: 30px;
+width:80px;
+color:black;
+text-align: center;
+font-weight: bold;
+margin-bottom: 5px;
+text-decoration: none; 
+}
+
+#floor ul li a:hover,
+#floor ul li a .current{
+    color: #fff;
+    background: #0088bb;
+}

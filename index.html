@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>My-Store商城</title>
+    <!-- <link rel="stylesheet" href="css/style.css"> -->
+    <script src="jquery.js"></script>
+    <!-- <script src="js/JavaScript.js"></script> -->
+    <style>
+    *{padding:0; margin:0;list-style: none}
+
+body{
+    font-size: 15px;
+    line-height:15px;
+}
+#content{
+    border:1px solid #8ddbf3;
+    padding:20px;
+    width: 800px; 
+    margin: 0 auto;
+}
+
+h1{
+    color: #0088BB;font-weight: blod;
+    font-size: 30px;
+}
+
+
+.item{
+    margin:20px 10px 20px 10px;
+    border:1px solid #c0c0c0;
+}
+
+.item li{
+    display:inline;margin-right: 10px;
+}
+
+.item h3{
+    border-bottom:2px solid #0088BB; 
+    font-size: 28px;font-weight: bold;
+    margin:10px 5px 10px 8px;
+    padding-bottom: 10px;
+}
+
+.item ul li img{
+    width:230px;height: 230px;
+    margin-right:10px;margin-bottom: 10px;
+}
+#floor {
+    position: fixed;          /*   固定定位   */
+    top: 100px;
+    left: 50%;             /*小技巧：先定位到中部，再向右偏移*/
+    margin-left:422px;
+    width: 50px;
+}
+#floor ul li a{          /*样式写在a标签上不写在li标签上*/
+display:block;
+border:1px solid #eee;
+height:30px;line-height: 30px;
+width:80px;
+color:black;
+text-align: center;
+font-weight: bold;
+margin-bottom: 5px;
+text-decoration: none; 
+}
+
+#floor ul li a:hover,
+#floor ul li .current{
+    color: #fff;
+    background: #0088bb;
+}
+    </style>
+    <script>
+    $(document).ready(function () {
+    $(window).scroll(function () {
+        var top = $(document).scrollTop();
+        // console.log(top);
+        var floor = $("#floor");
+        var items = $("#content").find(".item");
+        var currentId = "";
+        items.each(function () {
+            //jq中的offset方法：返回或设置元素相对于文档的位置
+
+            var itemTop = $(this).offset().top;
+            // console.log(itemTop);
+            if (top > itemTop-220) {
+                currentId = "#" + $(this).attr("id");
+            } else {
+                return false;
+            }
+        });
+        var classCurrent = floor.find(".current");
+        if (currentId && classCurrent.attr("href") != currentId) {
+            classCurrent.removeClass("current");
+            floor.find("[href=" + currentId + "]").addClass("current");
+        }
+    });
+});
+
+
+    </script>
+</head>
+
+<body>
+    <div id="floor">
+        <ul>
+            <li>
+                <a href="#item1" class="current">F1  男装</a>       <!--使用添加锚点的方法快速定位-->
+            </li>
+            <li>
+                <a href="#item2">F2  女装</a>
+            </li>
+            <li>
+                <a href="#item3">F3  母婴</a>
+            </li>
+        </ul>
+    </div> 
+     
+    <div id="content" >
+         <h1>My-Store商城</h1>
+        <div id="item1" class="item">
+            <h3>1F  男装</h3>
+            <ul>
+                <li>
+                    <img src="imgs/1F.jpg" alt="">
+                </li>
+                <li>
+                    <img src="imgs/1F.jpg" alt="">
+                </li>
+                <li>
+                    <img src="imgs/1F.jpg" alt="">
+                </li>
+                <li>
+                    <img src="imgs/1F.jpg" alt="">
+                </li>
+                <li>
+                    <img src="imgs/1F.jpg" alt="">
+                </li>
+                <li>
+                    <img src="imgs/1F.jpg" alt="">
+                </li>
+            </ul>
+        </div>
+        <div id="item2" class="item">
+            <h3>2F   女装</h3>
+            <ul>
+                <li>
+                    <img src="imgs/2F.jpg" alt="">
+                </li>
+                <li>
+                    <img src="imgs/2F.jpg" alt="">
+                </li>
+                <li>
+                    <img src="imgs/2F.jpg" alt="">
+                </li>
+                <li>
+                    <img src="imgs/2F.jpg" alt="">
+                </li>
+                <li>
+                    <img src="imgs/2F.jpg" alt="">
+                </li>
+                <li>
+                    <img src="imgs/2F.jpg" alt="">
+                </li>
+            </ul>
+        </div>
+        <div id="item3" class="item">
+            <h3>3F   母婴</h3>
+            <ul>
+                <li>
+                    <img src="imgs/3F.jpg" alt="">
+                </li>
+                <li>
+                    <img src="imgs/3F.jpg" alt="">
+                </li>
+                <li>
+                    <img src="imgs/3F.jpg" alt="">
+                </li>
+                <li>
+                    <img src="imgs/3F.jpg" alt="">
+                </li>
+                <li>
+                    <img src="imgs/3F.jpg" alt="">
+                </li>
+                <li>
+                    <img src="imgs/3F.jpg" alt="">
+                </li>
+            </ul>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
